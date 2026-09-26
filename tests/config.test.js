@@ -14,6 +14,15 @@ assert(config, 'Config global should exist.');
 assert.strictEqual(config.BAND_FREQUENCIES.length, 8);
 assert.strictEqual(config.defaultSettings().selectedPreset, 'heavy');
 assert.strictEqual(config.defaultSettings().enabled, true);
+assert(config.BUILTIN_PRESETS.neighboursSubwoofer);
+assert.strictEqual(
+  config.BUILTIN_PRESETS.neighboursSubwoofer.name,
+  'Neighbour\'s Subwoofer'
+);
+assert.strictEqual(
+  config.BUILTIN_PRESETS.neighboursSubwoofer.bands[0],
+  12
+);
 
 const clamped = config.sanitizeSettings({
   enabled: true,

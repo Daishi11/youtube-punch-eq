@@ -2,7 +2,7 @@
 
 A small Firefox-only local equalizer for **YouTube** and **YouTube Music**.
 
-Version: **0.1.0**
+Version: **0.1.1**
 
 ## Features
 
@@ -10,7 +10,7 @@ Version: **0.1.0**
 - Preamp: `-18 dB` to `+6 dB`.
 - Bass low-shelf at `80 Hz`: `-12 dB` to `+12 dB`.
 - 8 peaking bands: `125 / 250 / 500 / 1k / 2k / 4k / 8k / 16k Hz`.
-- Built-in presets: Flat, Heavy / Punch, Rock, Deep Bass.
+- Built-in presets: Flat, Heavy / Punch, Rock, Deep Bass, Neighbour's Subwoofer.
 - Save and delete custom presets.
 - Double-click any slider to reset it to `0 dB`.
 - Mouse wheel over a slider for `0.5 dB` steps.
@@ -40,7 +40,7 @@ The thing that *does* need re-hooking is a new/replaced YouTube media element, w
 
 ## Temporary installation in Firefox
 
-Requires **Firefox 128+**.
+Requires **Firefox 142+**.
 
 1. Extract this folder somewhere permanent enough for testing.
 2. Open `about:debugging#/runtime/this-firefox`.

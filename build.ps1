@@ -21,6 +21,65 @@ if ([string]::IsNullOrWhiteSpace($version)) {
   throw 'manifest.json does not contain a valid version.'
 }
 
+Add-Type -AssemblyName System.IO.Compression
+Add-Type -AssemblyName System.IO.Compression.FileSystem
+
+function New-PortableZip {
+  param(
+    [Parameter(Mandatory)]
+    [string]$SourceDirectory,
+
+    [Parameter(Mandatory)]
+    [string]$DestinationPath
+  )
+
+  if (Test-Path $DestinationPath) {
+    Remove-Item $DestinationPath -Force
+  }
+
+  $sourcePath = (Resolve-Path $SourceDirectory).Path
+  $archive = [System.IO.Compression.ZipFile]::Open(
+    $DestinationPath,
+    [System.IO.Compression.ZipArchiveMode]::Create
+  )
+
+  try {
+    Get-ChildItem -LiteralPath $sourcePath -Recurse -File | ForEach-Object {
+      $relativePath = $_.FullName.Substring($sourcePath.Length)
+      $relativePath = $relativePath.TrimStart('\', '/')
+      $entryName = $relativePath -replace '\\', '/'
+
+      [System.IO.Compression.ZipFileExtensions]::CreateEntryFromFile(
+        $archive,
+        $_.FullName,
+        $entryName,
+        [System.IO.Compression.CompressionLevel]::Optimal
+      ) | Out-Null
+    }
+  }
+  finally {
+    $archive.Dispose()
+  }
+
+  $checkArchive = [System.IO.Compression.ZipFile]::OpenRead($DestinationPath)
+
+  try {
+    $invalidEntries = @(
+      $checkArchive.Entries | Where-Object {
+        $_.FullName.Contains('\')
+      }
+    )
+
+    if ($invalidEntries.Count -gt 0) {
+      $names = $invalidEntries.FullName -join ', '
+      throw "Archive contains invalid Windows path separators: $names"
+    }
+  }
+  finally {
+    $checkArchive.Dispose()
+  }
+}
+
 Write-Host ''
 Write-Host '=== YouTube Punch EQ Build ==='
 Write-Host "Version: $version"
@@ -93,7 +152,9 @@ try {
   $runtimeZip = Join-Path $dist "youtube-punch-eq-$version.zip"
   $xpiPath = Join-Path $dist "youtube-punch-eq-$version-unsigned.xpi"
 
-  Compress-Archive -Path (Join-Path $runtimeStage '*') -DestinationPath $runtimeZip -CompressionLevel Optimal
+  New-PortableZip `
+    -SourceDirectory $runtimeStage `
+    -DestinationPath $runtimeZip
   Move-Item $runtimeZip $xpiPath
 
   Write-Host 'Staging source package...'
@@ -121,7 +182,9 @@ try {
   }
 
   $sourceZip = Join-Path $dist "youtube-punch-eq-$version-source.zip"
-  Compress-Archive -Path (Join-Path $sourceStage '*') -DestinationPath $sourceZip -CompressionLevel Optimal
+  New-PortableZip `
+    -SourceDirectory $sourceStage `
+    -DestinationPath $sourceZip
 
   $hashFile = Join-Path $dist 'SHA256SUMS.txt'
   $artifacts = @($xpiPath, $sourceZip)

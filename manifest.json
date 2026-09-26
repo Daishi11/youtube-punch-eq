@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "YouTube Punch EQ",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A local real-time equalizer for YouTube and YouTube Music with preamp, bass shelf, presets, and instant media re-hooking.",
   "permissions": [
     "storage"
