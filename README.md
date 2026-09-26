@@ -80,3 +80,16 @@ Firefox can suspend a new `AudioContext` until the page receives a user gesture.
 - `content/bridge.js` — isolated WebExtension bridge for storage and popup messaging.
 - `popup/*` — toolbar UI.
 - `tests/config.test.js` — dependency-free configuration sanity tests.
+
+## Issues and support
+
+If you encounter a bug, have a feature request, or need help with YouTube Punch EQ, please open an issue.
+
+When reporting a bug, please include:
+
+- Firefox version
+- YouTube or YouTube Music
+- operating system
+- steps to reproduce the issue
+- what you expected to happen
+- what actually happened
