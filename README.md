@@ -81,15 +81,29 @@ Firefox can suspend a new `AudioContext` until the page receives a user gesture.
 - `popup/*` — toolbar UI.
 - `tests/config.test.js` — dependency-free configuration sanity tests.
 
-## Issues and support
+## Support the project
 
-If you encounter a bug, have a feature request, or need help with YouTube Punch EQ, please open an issue.
+YouTube Punch EQ is free and open source.
 
-When reporting a bug, please include:
+If you enjoy the extension and want to support future development, you can leave a small tip on Ko-fi:
 
-- Firefox version
-- YouTube or YouTube Music
-- operating system
-- steps to reproduce the issue
-- what you expected to happen
-- what actually happened
+**Ko-fi:** [Support me on Ko-fi](YOUR_KOFI_URL)
+
+Support is always appreciated, but never expected.
+
+
+## Bugs, feature requests and new ideas
+
+Found a bug or have an idea specifically for YouTube Punch EQ?
+
+Please open an issue here:
+
+**Issues:** https://github.com/Daishi11/youtube-punch-eq/issues
+
+I'm also open to ideas for completely new Firefox extensions and small tools.
+
+If there's something you wish existed, you can suggest it here:
+
+**New extension ideas:** [Suggest an idea](YOUR_IDEAS_URL)
+
+I won't promise that every suggestion will become a project, but I do read them and I'm always interested in useful, unusual or annoyingly-specific ideas.
