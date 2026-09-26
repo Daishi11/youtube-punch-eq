@@ -33,7 +33,7 @@
     heavy: freezePreset('Heavy / Punch', -4.5, 4, [2.5, 0, -1, -0.5, 0.5, 1.5, 1, 0]),
     rock: freezePreset('Rock', -3.5, 2.5, [1.5, -0.5, -1.5, 0, 1.5, 2, 1, 0]),
     deepBass: freezePreset('Deep Bass', -6, 6, [3, 1, -1.5, -1, 0, 0.5, 0.5, 0]),
-    neighboursSubwoofer: freezePreset('Neighbour\'s Subwoofer', -6, 12, [-12, 0, -9.5, -12, -12, -12, -12, -12])
+    neighboursSubwoofer: freezePreset('Neighbour\'s Subwoofer', -6, 12, [12, 0, -9.5, -12, -12, -12, -12, -12])
   });
 
   const STORAGE_KEYS = Object.freeze({
