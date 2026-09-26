@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>YouTube Punch EQ</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="header">
+      <div>
+        <div class="eyebrow">LOCAL DSP</div>
+        <h1>YouTube Punch EQ</h1>
+      </div>
+      <label class="switch" title="Enable or bypass equalizer">
+        <input id="enabled" type="checkbox">
+        <span class="switch-track"><span class="switch-thumb"></span></span>
+      </label>
+    </header>
+
+    <section class="status-panel" aria-live="polite">
+      <span id="status-dot" class="status-dot"></span>
+      <div class="status-copy">
+        <strong id="status-title">Connecting…</strong>
+        <span id="status-detail">Checking the active tab.</span>
+      </div>
+      <button id="rescan" class="icon-button" type="button" title="Rescan media elements">↻</button>
+    </section>
+
+    <section class="master-controls">
+      <label class="control-row" for="preamp">
+        <span class="control-name">Preamp</span>
+        <input id="preamp" type="range" min="-18" max="6" step="0.5">
+        <output id="preamp-value" class="db-value"></output>
+      </label>
+
+      <label class="control-row" for="bass">
+        <span class="control-name">Bass · 80 Hz shelf</span>
+        <input id="bass" type="range" min="-12" max="12" step="0.5">
+        <output id="bass-value" class="db-value"></output>
+      </label>
+    </section>
+
+    <section class="eq-panel" aria-label="Graphic equalizer">
+      <div id="bands" class="bands"></div>
+    </section>
+
+    <section class="preset-panel">
+      <label class="preset-label" for="preset">Preset</label>
+      <div class="preset-row">
+        <select id="preset"></select>
+        <button id="save-preset" type="button" class="button">Save as…</button>
+        <button id="delete-preset" type="button" class="button button-danger" disabled>Delete</button>
+      </div>
+      <p class="hint">Double-click a slider to reset it. Mouse wheel adjusts by 0.5 dB.</p>
+    </section>
+  </main>
+
+  <div id="save-modal" class="modal" hidden>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="save-title">
+      <h2 id="save-title">Save preset</h2>
+      <input id="preset-name" type="text" maxlength="48" autocomplete="off" placeholder="Preset name">
+      <div class="modal-actions">
+        <button id="cancel-save" type="button" class="button">Cancel</button>
+        <button id="confirm-save" type="button" class="button button-primary">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../shared/config.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
