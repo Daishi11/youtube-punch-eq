@@ -48,8 +48,6 @@ Requires **Firefox 128+**.
 4. Select `manifest.json` from this folder.
 5. Reload already-open YouTube / YouTube Music tabs once after installing or reloading the add-on.
 
-A temporary add-on is removed when Firefox restarts. Once the extension is proven stable, it can be signed through Mozilla as an **unlisted/self-distributed** add-on for permanent installation.
-
 ## Recommended first test
 
 1. Open the YouTube homepage.
