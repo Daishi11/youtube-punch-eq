@@ -87,7 +87,7 @@ YouTube Punch EQ is free and open source.
 
 If you enjoy the extension and want to support future development, you can leave a small tip on Ko-fi:
 
-**Ko-fi:** [Support me on Ko-fi](YOUR_KOFI_URL)
+**Ko-fi:** [Support me on Ko-fi](https://ko-fi.com/daishi11)
 
 Support is always appreciated, but never expected.
 
@@ -104,6 +104,6 @@ I'm also open to ideas for completely new Firefox extensions and small tools.
 
 If there's something you wish existed, you can suggest it here:
 
-**New extension ideas:** [Suggest an idea](YOUR_IDEAS_URL)
+**New extension ideas:** [Suggest an idea](https://github.com/Daishi11/small-tool-ideas/discussions/1)
 
 I won't promise that every suggestion will become a project, but I do read them and I'm always interested in useful, unusual or annoyingly-specific ideas.
