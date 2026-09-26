@@ -102,6 +102,6 @@ I'm also open to ideas for completely new Firefox extensions and small tools.
 
 If there's something you wish existed, you can suggest it here:
 
-**New extension ideas:** [Suggest an idea](https://github.com/Daishi11/small-tool-ideas/discussions/1)
+**New tool ideas:** [Suggest an idea](https://github.com/Daishi11/small-tool-ideas/discussions/categories/ideas)
 
 I won't promise that every suggestion will become a project, but I do read them and I'm always interested in useful, unusual or annoyingly-specific ideas.
